@@ -1,3 +1,11 @@
+.slick-slide img {
+  display: block;
+  width: 100%;
+  height: auto;
+  filter: none !important;
+  opacity: 1 !important;
+}
+
 video{
     width: 100%;
     border: 0;
@@ -1501,7 +1509,7 @@ body .button-close {
   background: linear-gradient(90deg, #000, #868686) 0 0/100% no-repeat;
   -webkit-background-clip: text;
   background-clip: text;
-  width: 5.19531rem;
+  width: 6rem;
   font-size: 0.54688rem;
 }
 .div1.fly-birds-page_a9ca3f5e43 .div46 .div48 .div50 .div52 {
@@ -1518,7 +1526,7 @@ body .button-close {
   background: linear-gradient(90deg, #000, #868686) 0 0/100% no-repeat;
   -webkit-background-clip: text;
   background-clip: text;
-  width: 3.35938rem;
+  width: 5rem;
   font-size: 0.20313rem;
 }
 .div1.fly-birds-page_a9ca3f5e43 .div46 .div48 .div53 {
@@ -1910,7 +1918,7 @@ body .button-close {
 .div1.fly-birds-page_a9ca3f5e43 .div85 .div87 .div88 .split_text459 {
   color: #fff;
   text-align: center;
-  width: 3.82813rem;
+  width: 5.82813rem;
   font-size: 0.28125rem;
 }
 .div1.fly-birds-page_a9ca3f5e43 .div85 .div87 .div91 {
@@ -2113,7 +2121,7 @@ body .button-close {
 }
 .div1.fly-birds-page_a9ca3f5e43 .div106 .div108 .div109 .split_text451 {
   color: #fff;
-  width: 2.96875rem;
+  width: 3.96875rem;
   font-size: 0.28125rem;
 }
 .div1.fly-birds-page_a9ca3f5e43 .div106 .div108 .div110 {
@@ -2136,7 +2144,7 @@ body .button-close {
 }
 .div1.fly-birds-page_a9ca3f5e43 .div106 .div108 .div111 .split_text449 {
   color: rgba(255, 255, 255, 0.7);
-  width: 2.26563rem;
+  width: 3.26563rem;
   font-size: 0.10156rem;
 }
 .div1.fly-birds-page_a9ca3f5e43 .div112 {
@@ -2298,7 +2306,7 @@ body .button-close {
 .div1.fly-birds-page_a9ca3f5e43 .div124 .div126 .div130 .div132 .split_text442 {
   color: #000;
   text-align: center;
-  width: 5.625rem;
+  width: 6.625rem;
   font-size: 0.28125rem;
 }
 .div1.fly-birds-page_a9ca3f5e43 .div124 .div126 .div135 {
@@ -2332,7 +2340,7 @@ body .button-close {
   flex-direction: column;
   align-items: center;
   width: 1.99219rem;
-  margin-left: 0.08984rem;
+  margin-left: 0.2rem;
   display: flex;
 }
 .div1.fly-birds-page_a9ca3f5e43 .div124 .div14001 .div16003 .div17004 {
@@ -2366,7 +2374,7 @@ body .button-close {
   .div18005
   .div19006 {
   align-items: flex-start;
-  width: 0.63281rem;
+  width: 0.7rem;
   display: flex;
 }
 .div1.fly-birds-page_a9ca3f5e43
@@ -2392,7 +2400,7 @@ body .button-close {
   .split_text1458 {
   color: #000;
   text-align: center;
-  width: 0.66406rem;
+  width: 0.7rem;
   font-size: 0.10156rem;
 }
 .div1.fly-birds-page_a9ca3f5e43
@@ -2442,7 +2450,7 @@ body .button-close {
   .split_text1457 {
   color: #000;
   text-align: center;
-  width: 0.66406rem;
+  width: 0.7rem;
   font-size: 0.10156rem;
 }
 .div1.fly-birds-page_a9ca3f5e43
@@ -2467,7 +2475,7 @@ body .button-close {
   justify-content: center;
   align-items: center;
   width: 0.5rem;
-  margin-left: 0.07813rem;
+  margin-left: 0.1299rem;
   display: flex;
 }
 .div1.fly-birds-page_a9ca3f5e43
@@ -2479,7 +2487,7 @@ body .button-close {
   .split_text1456 {
   color: #000;
   text-align: center;
-  width: 0.66406rem;
+  width: 0.7rem;
   font-size: 0.10156rem;
 }
 .div1.fly-birds-page_a9ca3f5e43 .div124 .image139 {
@@ -2527,7 +2535,7 @@ body .button-close {
 .div1.fly-birds-page_a9ca3f5e43 .div171 .div173 .div174 .div175 .split_text426 {
   color: #fff;
   text-align: center;
-  width: 3.58984rem;
+  width: 3.7rem;
   font-size: 0.28125rem;
 }
 .div1.fly-birds-page_a9ca3f5e43 .div171 .div173 .div174 .div178 {
@@ -3982,7 +3990,7 @@ body .button-close {
   background: linear-gradient(270deg, #c0bdb7, #817871) 0 0/100% no-repeat;
   -webkit-background-clip: text;
   background-clip: text;
-  width: 4.23438rem;
+  width: 7.23438rem;
   font-size: 0.54688rem;
 }
 .div1.fly-birds-page_a9ca3f5e43 .div466 .div468 .div470 {
@@ -4042,7 +4050,7 @@ body .button-close {
 .div1.fly-birds-page_a9ca3f5e43 .div471 .div473 .div475 .split_text319 {
   color: #000;
   text-align: center;
-  width: 5rem;
+  width: 6rem;
   font-size: 0.28125rem;
 }
 .div1.fly-birds-page_a9ca3f5e43 .div471 .div473 .div476 {
@@ -4853,7 +4861,7 @@ body .button-close {
   background: linear-gradient(90deg, #e1e1e1, #575757) 0 0/100% no-repeat;
   -webkit-background-clip: text;
   background-clip: text;
-  width: 3.04688rem;
+  width: 7.04688rem;
   font-size: 0.54688rem;
 }
 .div1.fly-birds-page_a9ca3f5e43 .div547 .div549 .div551 {
@@ -4871,7 +4879,7 @@ body .button-close {
   background: linear-gradient(90deg, #e1e1e1, #575757) 0 0/100% no-repeat;
   -webkit-background-clip: text;
   background-clip: text;
-  width: 2.92969rem;
+  width: 3.92969rem;
   font-size: 0.20313rem;
 }
 .div1.fly-birds-page_a9ca3f5e43 .div552 {
@@ -4964,7 +4972,7 @@ body .button-close {
 .div1.fly-birds-page_a9ca3f5e43 .div558 .div560 .div561 .split_text284 {
   color: #fff;
   text-align: center;
-  width: 5.60547rem;
+  width: 6.4rem;
   font-size: 0.28125rem;
 }
 .div1.fly-birds-page_a9ca3f5e43 .div558 .div560 .div564 {
@@ -5116,7 +5124,7 @@ body .button-close {
   background: linear-gradient(90deg, #000, #868686) 0 0/100% no-repeat;
   -webkit-background-clip: text;
   background-clip: text;
-  width: 2.5rem;
+  width: 5rem;
   font-size: 0.54688rem;
 }
 .div1.fly-birds-page_a9ca3f5e43 .div578 .div580 .div582 {
