@@ -31,6 +31,7 @@ document.addEventListener("DOMContentLoaded", () => {
 
   let slides = Array.from(root.querySelectorAll(".slick-slide"));
   const dots = Array.from(root.querySelectorAll(".focal-option"));
+  const texts = Array.from(root.querySelectorAll(".focal-item"));
   const indicator = root.querySelector(".focal-track-indicator");
 
   let current = 1; // primeiro slide real
@@ -55,13 +56,23 @@ document.addEventListener("DOMContentLoaded", () => {
     return slide.offsetLeft - (list.clientWidth - slide.offsetWidth) / 2;
   }
 
-  /* ================= DOTS ================= */
-  function updateDots(realIndex) {
-    dots.forEach((d) => d.classList.remove("active"));
-    dots[realIndex]?.classList.add("active");
+  /* ================= DOTS + TEXT ================= */
+  function updateUI(realIndex) {
+    // DOTS
+    dots.forEach((d, i) => {
+      d.classList.toggle("active", i === realIndex);
+    });
 
-    const step = 100 / dots.length;
-    indicator.style.transform = `translateX(${realIndex * step}%)`;
+    // TEXTOS
+    texts.forEach((t, i) => {
+      t.classList.toggle("active", i === realIndex);
+    });
+
+    // INDICADOR
+    if (indicator) {
+      const step = 100 / dots.length;
+      indicator.style.transform = `translateX(${realIndex * step}%)`;
+    }
   }
 
   /* ================= CORE ================= */
@@ -72,38 +83,33 @@ document.addEventListener("DOMContentLoaded", () => {
     track.style.transition = animate ? "transform 0.6s ease" : "none";
     track.style.transform = `translate3d(-${getX(index)}px, 0, 0)`;
 
-    // remove destaque de todos
-    slides.forEach((slide) => {
-      slide.classList.remove("slick-current");
-    });
-
-    // destaca o slide atual
+    slides.forEach((slide) => slide.classList.remove("slick-current"));
     slides[index]?.classList.add("slick-current");
 
     current = index;
 
     setTimeout(() => {
-      // clone final → volta para o primeiro real
+      // clone final → primeiro real
       if (current === slides.length - 1) {
         track.style.transition = "none";
         current = 1;
         track.style.transform = `translate3d(-${getX(current)}px,0,0)`;
       }
 
-      // clone inicial → volta para o último real
+      // clone inicial → último real
       if (current === 0) {
         track.style.transition = "none";
         current = slides.length - 2;
         track.style.transform = `translate3d(-${getX(current)}px,0,0)`;
       }
 
-      // garante destaque correto após o jump
-      slides.forEach((slide) => {
-        slide.classList.remove("slick-current");
-      });
+      slides.forEach((slide) => slide.classList.remove("slick-current"));
       slides[current]?.classList.add("slick-current");
 
-      updateDots(current - 1);
+      // 🔥 índice real (sem clone)
+      const realIndex = current - 1;
+      updateUI(realIndex);
+
       isAnimating = false;
     }, 650);
   }
@@ -114,6 +120,7 @@ document.addEventListener("DOMContentLoaded", () => {
 
   /* ================= DOT CLICK ================= */
   dots.forEach((dot, i) => {
+    dot.style.cursor = "pointer";
     dot.addEventListener("click", () => {
       stopAutoplay();
       goTo(i + 1);
@@ -135,7 +142,7 @@ document.addEventListener("DOMContentLoaded", () => {
 
   /* ================= INIT ================= */
   goTo(current, false);
-  updateDots(0);
+  updateUI(0);
   startAutoplay();
 });
 
