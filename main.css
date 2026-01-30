@@ -6,6 +6,12 @@
   opacity: 1 !important;
 }
 
+.xm-scroll .slick-slider, 
+.xm-scroll .slick-slider .slick-list, 
+.xm-scroll .slick-slider .slick-slide div, 
+.xm-scroll .slick-slider .slick-slide div img {
+    height: 100%;
+}
 
 video{
     width: 100%;
