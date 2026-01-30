@@ -7135,15 +7135,13 @@ body.mi-modal__Body--overflow-hidden {
   width: 0.42969rem;
   padding: 0.04688rem 0;
   font-size: 0.09375rem;
-  font-weight: 400;
+  font-weight: 600;
 }
 .div1 .perspectives_box .focal-option:hover {
   color: rgba(0, 0, 0, 0.8);
+  font-weight: 900;
 }
-.div1 .perspectives_box .focal-option:nth-child(3) {
-  color: #000;
-  font-weight: 700;
-}
+
 .div1 .perspectives_box .focal-info {
   z-index: 10;
   text-align: center;
