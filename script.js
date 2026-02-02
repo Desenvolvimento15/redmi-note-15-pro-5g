@@ -146,5 +146,140 @@ document.addEventListener("DOMContentLoaded", () => {
   startAutoplay();
 });
 
+document.addEventListener("DOMContentLoaded", () => {
+  const root = document.querySelector(".perspectives_box_mobile");
+  if (!root) return;
+
+  const track = root.querySelector(".slick-track");
+  const list = root.querySelector(".slick-list");
+
+  let slides = Array.from(track.querySelectorAll(".slick-slide"));
+  const dots = Array.from(root.querySelectorAll(".focal-option"));
+  const texts = Array.from(root.querySelectorAll(".focal-item"));
+  const indicator = root.querySelector(".focal-track-indicator");
+
+  let current = 1;
+  let isAnimating = false;
+  let timer = null;
+
+  /* ================= CLONES ================= */
+  const firstClone = slides[0].cloneNode(true);
+  const lastClone = slides[slides.length - 1].cloneNode(true);
+
+  firstClone.classList.add("slick-clone");
+  lastClone.classList.add("slick-clone");
+
+  track.insertBefore(lastClone, slides[0]);
+  track.appendChild(firstClone);
+
+  slides = Array.from(track.querySelectorAll(".slick-slide"));
+
+  /* ================= POSITION ================= */
+  function getX(index) {
+    const slide = slides[index];
+    return slide.offsetLeft - (list.clientWidth - slide.offsetWidth) / 2;
+  }
+
+  /* ================= DOT / TEXT MAP ================= */
+  // 3 dots → 5 slides
+  const dotMap = [
+    [0, 1], // dot 0 → slides 1x / 1.2x
+    [2, 3], // dot 1 → slides 1.5x / 2x
+    [4], // dot 2 → slide 4x
+  ];
+
+  function getDotIndex(realIndex) {
+    return dotMap.findIndex((group) => group.includes(realIndex));
+  }
+
+  /* ================= UI ================= */
+  function updateUI(realIndex) {
+    // TEXTOS
+    texts.forEach((t, i) => {
+      t.classList.toggle("active", i === realIndex);
+    });
+
+    // DOTS
+    const dotIndex = getDotIndex(realIndex);
+    dots.forEach((d, i) => {
+      d.classList.toggle("active", i === dotIndex);
+    });
+
+    // INDICADOR
+    if (indicator && dotIndex >= 0) {
+      const step = 100 / dots.length;
+      indicator.style.transform = `translateX(${dotIndex * step}%)`;
+    }
+  }
+
+  /* ================= CORE ================= */
+  function goTo(index, animate = true) {
+    if (isAnimating) return;
+    isAnimating = true;
+
+    track.style.transition = animate ? "transform 0.6s ease" : "none";
+    track.style.transform = `translate3d(-${getX(index)}px,0,0)`;
+
+    slides.forEach((s) => s.classList.remove("slick-current"));
+    slides[index]?.classList.add("slick-current");
+
+    current = index;
+
+    setTimeout(() => {
+      if (current === slides.length - 1) {
+        track.style.transition = "none";
+        current = 1;
+        track.style.transform = `translate3d(-${getX(current)}px,0,0)`;
+      }
+
+      if (current === 0) {
+        track.style.transition = "none";
+        current = slides.length - 2;
+        track.style.transform = `translate3d(-${getX(current)}px,0,0)`;
+      }
+
+      slides.forEach((s) => s.classList.remove("slick-current"));
+      slides[current]?.classList.add("slick-current");
+
+      const realIndex = current - 1;
+      updateUI(realIndex);
+
+      isAnimating = false;
+    }, 650);
+  }
+
+  function next() {
+    goTo(current + 1);
+  }
+
+  /* ================= DOT CLICK ================= */
+  dots.forEach((dot, i) => {
+    dot.style.cursor = "pointer";
+    dot.addEventListener("click", () => {
+      stopAutoplay();
+      const targetRealIndex = dotMap[i][0];
+      goTo(targetRealIndex + 1);
+      startAutoplay();
+    });
+  });
+
+  /* ================= AUTOPLAY ================= */
+  function startAutoplay() {
+    clearInterval(timer);
+    timer = setInterval(next, 4000);
+  }
+
+  function stopAutoplay() {
+    clearInterval(timer);
+  }
+
+  window.addEventListener("resize", () => goTo(current, false));
+
+  /* ================= INIT ================= */
+  goTo(current, false);
+  updateUI(0);
+  startAutoplay();
+});
+
 
 
